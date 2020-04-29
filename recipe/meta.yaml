@@ -1,9 +1,8 @@
 {% set name = "us" %}
-{% set version = "1.0.0" %}
+{% set version = "2.0.2" %}
 {% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash = "09dc9ba763e2e4399e6a042104f3e415a7de6bfa4df6f557b4f19e3ba9a22fda" %}
-{% set build = 1 %}
+{% set hash = "cb11ad0d43deff3a1c3690c74f0c731cff5b862c73339df2edd91133e1496fbc" %}
+{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
@@ -12,14 +11,14 @@ package:
 source:
   fn: {{ name }}-{{ version }}.{{ bundle }}
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  sha256: {{ hash }}
 
 build:
   noarch: python
   entry_points:
     - states = us.cli.states:main
   number: {{ build }}
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -45,7 +44,7 @@ about:
   license: BSD 3-Clause
   license_file: LICENSE
   license_family: BSD
-  summary: 'US state meta information and other fun stuff'
+  summary: US state meta information and other fun stuff
   dev_url: https://github.com/unitedstates/python-us
 
 extra:
