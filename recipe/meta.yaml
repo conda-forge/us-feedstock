@@ -23,11 +23,10 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
     - setuptools
-
   run:
-    - python
+    - python >=3.6
     - jellyfish ==0.5.6
     - setuptools
 
@@ -41,7 +40,7 @@ test:
 
 about:
   home: https://github.com/unitedstates/python-us
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
   summary: US state meta information and other fun stuff
