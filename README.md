@@ -147,4 +147,5 @@ Feedstock Maintainers
 
 * [@dorisjlee](https://github.com/dorisjlee/)
 * [@pmlandwehr](https://github.com/pmlandwehr/)
+* [@raybellwaves](https://github.com/raybellwaves/)
 
