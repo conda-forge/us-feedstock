@@ -2,7 +2,7 @@
 {% set version = "3.2.0" %}
 {% set bundle = "tar.gz" %}
 {% set hash = "cb223e85393dcc5171ead0dd212badc47f9667b23700fea3e7ea5f310d545338" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
   sha256: {{ hash }}
 
 build:
@@ -23,14 +23,16 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - jellyfish ==0.11.2
     - setuptools
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - us
     - us.cli
